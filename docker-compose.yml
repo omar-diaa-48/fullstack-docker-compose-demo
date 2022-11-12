@@ -9,6 +9,8 @@ services:
       - '9000:9000'
     expose:
       - '9000'
+    networks:
+      - integration
   frontend:
     build: ./frontend
     container_name: frontend
@@ -18,3 +20,8 @@ services:
       - '3000:3000'
     expose:
       - '3000'
+    networks:
+      - integration
+networks:
+  integration:
+    driver: bridge
